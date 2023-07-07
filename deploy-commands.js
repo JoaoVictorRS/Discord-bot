@@ -26,7 +26,9 @@ const rest = new REST({version:"10"}).setToken(TOKEN);
 (async() =>{
     try{
         console.log(`Resetando ${commands.length} comandos...`);
-        const data = await rest.put(Routes.applicationGuildCommands(CLIENT_ID), {body: commands})
+        const data = await rest.put(
+            Routes.applicationCommands(CLIENT_ID),
+            {body: commands});
         console.log("Comandos Registrados")
     }catch(error){
         console.error(error)
